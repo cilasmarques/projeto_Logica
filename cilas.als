@@ -1,7 +1,6 @@
 module projetoLogica
 
-one abstract sig SistemaDeLimpeza{
-}
+one abstract sig SistemaDeLimpeza{}
 
 sig Desligado in SistemaDeLimpeza {}
 sig ManualR in SistemaDeLimpeza {}
@@ -59,26 +58,26 @@ fun NotManualDB : set SistemaDeLimpeza {(ManualR +ManualD + ManualRB + AutoR + A
 fun NotManualRB : set SistemaDeLimpeza {(ManualR +ManualD + ManualDB + AutoR + AutoD + AutoRB + AutoDB)}
 
 --- Testes
-assert SistemaDesligado{-- se o sistema esta desligado, entao ele nao esta ligado
+assert SistemaDesligado{-- se o sistema esta desligado, entao ele nao pode estar ligado
 	all s:SistemaDeLimpeza| s in Desligado => (s not in (Ligado))   
 }
 
-assert SistemaLigado{-- se o sistema esta ligado, entao ele nao esta desligado
+assert SistemaLigado{-- se o sistema esta ligado, entao ele nao pode estar desligado
 	all s:SistemaDeLimpeza| s in Ligado => (s not in (Desligado))   
 }
 
 assert SistemaContraChuvaFraca{-- se o sistema esta contra chuva fraca, entao ele nao pode estar em nenhum automatico rapido
-	all s:SistemaDeLimpeza| s in ContraChuvaFraca => (s not in (AutoRB) or s not in (AutoR))   
-	-- OBS: Ele pode estar desligado, caso o motoristaescolha isso
+	all s:SistemaDeLimpeza| s in ContraChuvaFraca => (s not in (AutoRB) and s not in (AutoR))   
+	-- OBS: Ele pode estar desligado, caso o motorista escolha isso
 }
 
 assert SistemaContraChuvaForte{-- se o sistema esta contra chuva forte, entao ele nao pode estar em nenhum automatico devagar
-	all s:SistemaDeLimpeza| s in ContraChuvaFraca => (s not in (AutoDB) or s not in (AutoD))   
-	-- OBS: Ele pode estar desligado, caso o motoristaescolha isso
+	all s:SistemaDeLimpeza| s in ContraChuvaForte => (s not in (AutoDB) and s not in (AutoD))   
+	-- OBS: Ele pode estar desligado, caso o motorista escolha isso
 }
 
 assert SistemaSemChuva{-- se o sistema esta sem enfrentar chuva, entao ele nao esta em nenhum modo automatico
-	all s:SistemaDeLimpeza| s in SemChuva => (s not in (AutoR) or s not in (AutoD) or s not in (AutoRB) or s not in (AutoDB))   
+	all s:SistemaDeLimpeza| s in SemChuva => (s not in (AutoR) and s not in (AutoD) and s not in (AutoRB) and s not in (AutoDB))   
 }
 
 check SistemaLigado
