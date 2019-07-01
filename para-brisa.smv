@@ -1,0 +1,35 @@
+MODULE main
+
+VAR
+	paletas: {off, lento, rapido};
+	bicos: boolean;
+	chuva: {nenhuma, fraca, forte};
+	automatico: boolean;
+
+ASSIGN 
+	init(paletas) := off;
+	init(bicos) := FALSE;
+	next(paletas):=
+		case
+
+			--casos manuais 
+                        (paletas = off) & (bicos = FALSE): {off, lento};
+                        (paletas = lento) & (bicos = FALSE): {off, lento, rapido};
+                        (paletas = rapido): {lento, rapido};
+
+			--casos com o bico ligado
+                        (paletas = off) & (bicos = TRUE): {lento};
+                        (paletas = lento) & (bicos = TRUE): {lento, rapido};
+
+
+			-- casos para o modo automatico
+			(automatico = TRUE) & (chuva = nenhuma): {off};
+			(automatico = TRUE) & (chuva = fraca): {lento};
+			(automatico = TRUE) & (chuva = forte): {forte};
+		esac;
+
+	next(bicos):=
+		case
+			(bicos = TRUE) : FALSE;
+			(bicos = FALSE) : {TRUE, FALSE};
+		esac;
