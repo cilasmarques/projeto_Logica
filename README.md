@@ -14,11 +14,11 @@ Abra o arquivo projetoAlloy.als no Alloy Analyzer e o execute
 ### NuSMV (Descrição comportamental do sistema):
 
 #### No diretório de instalação:
-1.Copie o arquivo projetoNUSMV.smv para a pasta onde está o script executável do NuSMV (/bin/):
+1. Copie o arquivo projetoNUSMV.smv para a pasta onde está o script executável do NuSMV (/bin/):
 ``` 
 $ cp projetoNUSMV.smv ~/Downloads/NuSMV-2.6.0-Linux/bin/
 ```
-2.Execute o NuSMV com o arquivo:
+2. Execute o NuSMV com o arquivo:
 ```
 $ ./NuSMV projetoNUSMV.smv
 ```
