@@ -1,5 +1,10 @@
-# Projeto de Lógica para Ciência da Computação
-Projeto da disciplina Lógica para Computação
+# Projeto de Lógica para Computação
+Projeto da disciplina Lógica para Computação em 2019.1. UFCG.
+Alunos:
+Cilas Marques
+Gabriel Carvalho
+Nathan Fernandes
+Sérgio Duarte
 
 ## Como testar:
 ### Alloy (Descrição estrutural do sistema):
