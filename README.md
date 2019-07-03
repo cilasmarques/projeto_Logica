@@ -1,6 +1,6 @@
 # Projeto de Lógica para Computação
 Projeto da disciplina Lógica para Computação em 2019.1. UFCG.
-Alunos:
+- Alunos:
 * Cilas Marques
 * Gabriel Carvalho
 * Nathan Fernandes
