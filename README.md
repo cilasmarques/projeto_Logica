@@ -22,6 +22,16 @@ $ cp projetoNUSMV.smv ~/Downloads/NuSMV-2.6.0-Linux/bin/
 ```
 $ ./NuSMV projetoNUSMV.smv
 ```
+3. Para ver todos os casos, execute:
+```
+$ ./NuSMV -int projetoNUSMV.smv
+$ read_model
+$ flatten_hierarchy
+$ encode_variables
+$ build_model
+$ pick_state
+$ simulate -rv
+```
 #### Especificando o caminho para o arquivo:
 
 Va até a pasta onde está baixado e descompactado o NuSMV e depois na pasta interna ```bin``` e execute:
